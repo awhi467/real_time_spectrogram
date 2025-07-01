@@ -1,0 +1,19 @@
+Update version of webpack-cli:
+
+Look at current version: npm list webpack webpack-cli @webpack-cli/serve
+Install compatible version: npm install --save-dev webpack@5 webpack-cli@5 @webpack-cli/serve@2
+
+
+
+
+Update webpack.config.js
+
+Replace lines:
+devServer: {
+  contentBase: path.join(__dirname, 'dist'),
+
+with:
+devServer: {
+  static: {
+    directory: path.join(__dirname, 'dist'),
+  },
