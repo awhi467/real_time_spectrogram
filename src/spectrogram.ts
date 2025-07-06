@@ -32,6 +32,9 @@ function generateSpectrogramForSingleFrame(
     scale: Scale,
     scaleSize: number
 ) {
+
+    //windowSamples = padWithZeros(windowSamples, 48000)
+
     // Apply a Blackman-Harris windowing function to the input
     for (let i = 0; i < windowSamples.length; i += 1) {
         windowSamples[i] *= blackmanHarris(i, windowSamples.length);
@@ -115,6 +118,7 @@ export function generateSpectrogram(
 
     const result = new Float32Array(scaleSize * numWindows);
     const windowSamples = new Float32Array(windowSize);
+    const frameSize = 400;
 
     for (
         let i = startIdx, windowIdx = 0;
@@ -157,4 +161,14 @@ export function generateSpectrogram(
         },
         spectrogram: result,
     };
+}
+
+function padWithZeros(windowSamples: Float32Array, targetLength: number): Float32Array {
+  if (windowSamples.length >= targetLength) {
+    return windowSamples; // no padding needed
+  }
+
+  const padded = new Float32Array(targetLength);
+  padded.set(windowSamples); // copy existing samples to start
+  return padded;
 }

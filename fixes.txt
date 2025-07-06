@@ -1,4 +1,4 @@
-Update version of webpack-cli:
+---------------Update version of webpack-cli in console: ---------------
 
 Look at current version: npm list webpack webpack-cli @webpack-cli/serve
 Install compatible version: npm install --save-dev webpack@5 webpack-cli@5 @webpack-cli/serve@2
@@ -6,7 +6,7 @@ Install compatible version: npm install --save-dev webpack@5 webpack-cli@5 @webp
 
 
 
-Update webpack.config.js
+-----------------------Update webpack.config.js ------------------------
 
 Replace lines:
 devServer: {
@@ -17,3 +17,12 @@ devServer: {
   static: {
     directory: path.join(__dirname, 'dist'),
   },
+
+
+
+---------------------------View local copy: ----------------------------
+
+In chrome, site may be treated as not secure, will not allow mic access. To fix:
+Go to: chrome://flags/#unsafely-treat-insecure-origin-as-secure,
+Select enabled
+Enter site URL
